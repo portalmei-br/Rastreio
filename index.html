@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhar Pedido - E-commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <h1>E-Shop</h1>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">Início</a>
+                <a href="#" class="nav-link">Produtos</a>
+                <a href="#" class="nav-link active">Acompanhar Pedido</a>
+                <a href="#" class="nav-link">Contato</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="tracking-section">
+                <div class="tracking-header">
+                    <h2>Acompanhe seu Pedido</h2>
+                    <p>Digite seu CPF para consultar o status do seu pedido</p>
+                </div>
+
+                <div class="tracking-form">
+                    <div class="input-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14">
+                        <span class="input-icon">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                    <button id="trackButton" class="track-btn">
+                        <i class="fas fa-search"></i>
+                        Acompanhar Pedido
+                    </button>
+                </div>
+
+                <div id="orderResult" class="order-result hidden">
+                    <div class="order-info">
+                        <div class="order-header">
+                            <h3>Pedido #<span id="orderNumber"></span></h3>
+                            <span id="orderDate" class="order-date"></span>
+                        </div>
+                        <div class="order-details">
+                            <p><strong>Cliente:</strong> <span id="customerName"></span></p>
+                            <p><strong>Valor:</strong> <span id="orderValue"></span></p>
+                            <p><strong>Previsão de Entrega:</strong> <span id="deliveryDate"></span></p>
+                        </div>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-steps">
+                            <div class="step" data-step="1">
+                                <div class="step-icon">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Em Análise</h4>
+                                    <p>Pedido recebido e sendo analisado</p>
+                                </div>
+                            </div>
+
+                            <div class="step" data-step="2">
+                                <div class="step-icon">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Em Preparação</h4>
+                                    <p>Produtos sendo separados e embalados</p>
+                                </div>
+                            </div>
+
+                            <div class="step" data-step="3">
+                                <div class="step-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Coletado pela Transportadora</h4>
+                                    <p>Pedido retirado pela transportadora</p>
+                                </div>
+                            </div>
+
+                            <div class="step" data-step="4">
+                                <div class="step-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>A Caminho</h4>
+                                    <p>Pedido em trânsito para entrega</p>
+                                </div>
+                            </div>
+
+                            <div class="step" data-step="5">
+                                <div class="step-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Entregue</h4>
+                                    <p>Pedido entregue com sucesso</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="tracking-timeline">
+                        <h4>Histórico de Movimentação</h4>
+                        <div id="timeline" class="timeline">
+                            <!-- Timeline items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="errorMessage" class="error-message hidden">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>CPF não encontrado ou inválido. Verifique os dados e tente novamente.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 E-Shop. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
